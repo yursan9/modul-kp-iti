@@ -7,14 +7,12 @@ int main()
     char vokal[5] = {'a', 'i', 'u', 'e', 'o'};
     int angka[3];
 
-    for (int i = 0; i < 5; i++)
-    {
+    for (int i = 0; i < 5; i++){
         cout << vokal[i] << ' ';
     }
     cout << endl;
 
-    for (int i = 0; i < 3; i++)
-    {
+    for (int i = 0; i < 3; i++){
         cout << "Masukkan angka: ";
         cin >> angka[i];
     }

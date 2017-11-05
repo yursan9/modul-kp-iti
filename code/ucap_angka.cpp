@@ -7,8 +7,8 @@ int main()
     int angka;
     cout << "Masukkan bilangan:";
     cin >> angka;
-    
-    switch(angka){
+
+    switch (angka){
     case 1:
         cout << "Satu!";
         break;
@@ -23,7 +23,7 @@ int main()
         // Program keluar karena terjadi kesalahan
         return 1;
     }
-    
+
     cout << "Program selesai.\n"
     return 0;
 }

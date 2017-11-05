@@ -10,8 +10,7 @@ int main()
 	int min = 1, max = 100;
 
 	srand(time(NULL));
-	while(i++ < 10)
-	{
+	while (i++ < 10){
 		int r = min + rand() % (max - min + 1);
 		cout << r << " ";
 	}

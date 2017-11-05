@@ -7,8 +7,7 @@ int main()
 	string input;
 	int coba = 0;
 
-	do
-	{
+	do {
 		coba++;
 		cout << "Masukan PIN anda : ";
 		cin >> input;
@@ -17,7 +16,7 @@ int main()
 			cout << "Akun anda dibekukan.";
 			return 1;
 		}
-	}while(input != "123456");
+	} while(input != "123456");
 
 	cout << "Anda boleh masuk!";
 
