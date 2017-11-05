@@ -1,0 +1,59 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\chapter{Pengaturan Alur Program - Switch}
+\section{\emph{Switch}}
+Pada praktikum sebelumnya kita belajar tentang mengatur alur program menggunakan
+\emph{if} dan rangkaiannya. Sekarang, kita akan belajar tentang \emph{switch}
+yang memiliki fungsi yang sama untuk mengatur alur program.
+
+\begin{minted}{cpp}
+switch (var){
+case ekspresi-konstan 1:
+    aksi 1;
+    break;
+case ekspresi-konstan 2:
+    aksi 2:
+    break;
+default: // Opsional
+    pernyataan jika case tidak ada yang tepat;
+    break;
+}
+\end{minted}
+
+Cara kerja dari \emph{switch} adalah membandingkan nilai dalam \code{var} dengan
+ekspresi konstan ke-1, ke-2, \ldots{}, ke-\(n\) sampai nilai perbandingan yang
+dihasilkan adalah \code{true}. Jika sudah menemukan perbandingannya, maka
+pernyataan pada \emph{case} \(n\) tersebut akan dijalankan, dan \emph{case} yang
+lain tidak akan diperdulikan.
+
+\cppfile{code/ucap_angka.cpp}
+
+Jika kalian perhatikan dengan seksama, baris-baris di bagian \emph{switch} bisa
+kita tulis ulang dengan \emph{if, else if,} dan \emph{else} dan menghasilkan
+program yang sama.
+
+\begin{minted}{cpp}
+if (angka == 1)
+        cout << "Satu!";
+else if (angka == 2)
+    cout << "Dua!";
+else if (angka == 3)
+    cout << "Tiga!";
+else{
+    cout << "Tidak ada pilihan " << angka << endl;
+    // Program keluar karena terjadi kesalahan
+    return 1;
+}
+\end{minted}
+
+\paragraph{Latihan}
+\begin{enumerate}
+  \item Buat sebuah program yang menerima masukkan angka 1--12, dan mengeluarkan
+  nama bulan sesuai angka urutan yang dimasukkan. Jika pengguna memasukkan angka
+  diluar jangkauan, tampilkan peringatan.
+  \item Buat sebuah program yang menentukan tingkat keberhasilan mahasiswa saat
+  pengguna memasukkan nilai huruf. Misal, pengguna memasukkan huruf \code{'E'},
+  tampilkan bahwa mahasiswa tersebut harus mengulang mata kuliah tersebut.
+\end{enumerate}
+\end{document}

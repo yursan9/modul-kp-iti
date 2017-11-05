@@ -1,0 +1,50 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\chapter{Pengulangan Proses - For}
+\section{Motivasi}
+Pengulangan adalah proses seurutan instruksi yang secara kontinu berulang sampai
+sebuah kondisi tercapai. Biasanya, saat sebuah proses berhenti, seperti proses
+pengambilan data dan mengubah data, proses tersebut akan diperiksa kondisinya.
+Jika kondisinya tidak tercapai, proses urutan instruksi akan diulang kembali
+sampai kondisinya tercapai, biasanya dengan masukan yang berbeda. Sebuah
+pengulangan adalah konsep penting dalam program.
+
+\section{\eng{For}}
+Cara penulisan stuktur \eng{for} adalah :
+
+\begin{minted}{cpp}
+for (kondisi awal; kondisi akhir; step){
+	pernyataan;
+}
+\end{minted}
+
+Berikut ini adalah program untuk mencetak bilangan bulat dari 0 hingga 10 dengan
+menggunakan struktur \eng{for}:
+
+\cppfile{code/menghitung_10.cpp}
+
+Selain memberikan perintah untuk menampilkan, di dalam struktur \eng{for} kita
+juga bisa memberikan perintah lain. Seperti operasi aritmatika, struktur
+\eng{if}, dan lain-lain.
+
+Berikut ini adalah program untuk menjumlahkan deret bilangan
+\(1 + 2 + 3 + \ldots + n\):
+
+\cppfile{code/jumlah_deret.cpp}
+
+\paragraph{Latihan}
+\begin{enumerate}
+  \item Buatlah sebuah program untuk menghitung faktorial.
+  \item Buatlah sebuah program untuk menghasilkan:
+
+	\begin{minted}[fontsize=\huge]{cpp}
+	*
+	**
+	***
+	****
+	*****
+	\end{minted}
+\end{enumerate}
+
+\end{document}

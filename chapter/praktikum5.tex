@@ -1,0 +1,52 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\chapter{Pengulangan Proses - While}
+\section{\eng{While}}
+Pada struktur pengulangan \eng{while}, aksi akan terus dijalankan berulang kali sepanjang kondisi \eng{boolean} masih bernilai \eng{True}. Jika kondisi \eng{boolean} bernilai \eng{False}, aksi tidak akan dilaksanakan.
+
+Cara penulisan struktur \eng{while} adalah :
+
+\begin{minted}{cpp}
+while (kondisi){
+	pernyataan;
+}
+\end{minted}
+
+Program dibawah akan menampilkan bilangan acak 1-100. Jika \code{i} kurang dari 10, program akan menampilkan bilangan acak sampai \code{i} tidak lagi kurang dari 10.
+
+\cppfile{code/random_10.cpp}
+
+\section{\eng{Do-While}}
+Pada struktur pengulangan \eng{do-while}, pernyataan akan terus dijalankan berulang kali sepanjang kondisi \eng{boolean} masih bernilai \eng{True}. Jika kondisi \eng{boolean} bernilai \eng{False}, pernyataan tidak akan dilaksanakan. Yang membedakan antara perintah pengulangan \eng{while} dan \eng{do-while} adalah, pada struktur pengulangan \eng{do-while} perintah akan dilakukan minimal 1 kali baik \eng{boolean} bersifat \eng{True} atau \eng{False}, sedangkan pada \eng{while} jika \eng{boolean} bernilai \eng{False}, maka aksi tidak akan dilakukan sama sekali.
+
+Cara penulisan struktur \eng{do-while} adalah :
+
+\begin{minted}{cpp}
+do {
+	pernyataan;
+} while(kondisi);
+\end{minted}
+
+Diminta masukan PIN melalui \eng{keyboard}. Jika PIN yang dimasukan tidak sama dengan PIN yang ditentukan, maka program akan meminta PIN lagi. Diberikan kesempatan 3 kali sebelum akun dibekukan.
+
+\cppfile{code/masukkan_pin.cpp}
+
+\paragraph{Latihan}
+\begin{enumerate}
+	\item Buatlah sebuah program yang menerima \(n\) sebagai masukan. Lalu meminta \(n\) angka sebagai masukan, dan menjumlahkan semua masukan tersebut. Contoh:
+
+	Masukan:
+
+	\begin{minted}{cpp}
+	4
+	5 6 -1 10
+	\end{minted}
+
+	Keluaran:
+
+	\begin{minted}{cpp}
+	5 + 6 - 1 + 10 = 20
+	\end{minted}
+\end{enumerate}
+\end{document}

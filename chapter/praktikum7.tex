@@ -1,0 +1,73 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\chapter{Fungsi}
+\section{Motivasi}
+\eng{Programmer} adalah orang yang paling tidak suka menulis ulang solusi dari
+suatu permasalahan. Mereka lebih memilih untuk membuat solusi yang bisa
+digunakan secara berulang (bahkan diotomatisasikan). Cara berpikir ini yang
+memotivasi penggunaan fungsi dalam bahasa pemrograman.
+
+Jika kita melihat kode yang kita tulis di modul-modul sebelumnya, ada beberapa
+yang logikanya ditulis ulang. Seharusnya kita dapat menuliskannya sekali,
+dan memakainya berulang kali.
+
+\section{Anatomi Fungsi}
+
+Fungsi biasanya terdiri dari nama fungsi, tipe fungsi, parameter fungsi, dan
+nilai kembali. Penulisannya mungkin berbeda disetiap bahasa pemrograman, namun
+intinya fungsi itu terdiri dari hal yang disebutkan di atas.
+
+\begin{minted}{cpp}
+float kuadrat(float n){
+	float hasil = n * n;
+	return hasil
+}
+\end{minted}
+
+Potongan kode di atas menunjukkan cara membuat fungsi sederhana untuk
+mengkuadratkan bilangan \(n\). Jika dibedah penulisannya akan menghasilkan;
+
+\begin{description}
+	\item[nama fungsi] adalah kuadrat.
+	\item[tipe fungsi] adalah \code{int}. Tipe fungsi mempengaruhi tipe data
+	yang bisa dijadikan nilai kembali oleh fungsi tersebut.
+	\item[parameter fungsi] adalah variabel \code{n} yang bertipe \eng{integer}.
+	Parameter fungsi ini bersifat opsional.
+	\item[nilai kembali] adalah variabel \code{hasil}. Nilai kembali harus
+	sejenis dengan tipe fungsi seperti yang sudah diberitahu di atas.
+\end{description}
+
+Fungsi juga bisa digunakan untuk melakukan sesuatu tanpa nilai kembali. Gunakan
+tipe data \code{void} sebagai tipe fungsi untuk fungsi yang tidak menghasilkan
+nilai kembali.
+
+\begin{minted}{cpp}
+void hello(){
+	cout << "Hello World!";
+}
+\end{minted}
+
+\section{Deklarasi dan Inisialisasi}
+Terdapat dua bentuk deklarasi dan inisialisasi fungsi, dicontohkan oleh program
+dibawah;
+
+\cppfile{code/fungsi_hello.cpp}
+
+Program di atas melakukan deklarasi dan inisialisasi bersamaan.
+
+\cppfile{code/fungsi_sum.cpp}
+
+Program di atas melakukan deklarasi dan inisialisasi secara terpisah. Di mana
+fungsi dikenalkan dulu sebelum fungsi \code{main()}. Untuk parameter saat
+perkenalaan tidak perlu disebutkan namanya juga tidak apa, yang terpenting tipe
+variabel parameternya sudah diberikan.
+
+\paragraph{Latihan}
+\begin{enumerate}
+	\item Buat sebuah fungsi yang digunakan untuk mencari rata-rata, nilai
+	maksimum dan nilai minimum dari kumpulan nilai \eng{array integer}. Berikan
+	contoh penggunaannya pada fungsi \code{main()}.
+\end{enumerate}
+
+\end{document}

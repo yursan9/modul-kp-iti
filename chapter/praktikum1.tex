@@ -1,0 +1,218 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\chapter{Mengenal Bahasa Pemrograman C++}
+\section{Fakta Tentang Bahasa C++}
+C++ adalah sebuah bahasa pemrograman tingkat menengah yang diciptakan pada tahun
+1979 oleh Bjarne Stroustrup, yang awalnya diciptakan sebagai ekstensi dari
+bahasa pemrograman C.
+
+Segala hal dalam C++ itu \eng{case sensitive}: \code{username} tidak sama
+dengan \code{UserName}.
+
+\section{Program C++ sederhana}
+Program menggunakan bahasa C++ biasanya diakhiri dengan ekstensi \enquote{.cpp};
+contohnya \emph{hello.cpp}. Program biasa ditulis menggunakan \eng{text editor}
+seperti Notepad, Atom, dan lain-lain. Di praktikum ini kita akan menggunakan
+program \emph{DevC++}.
+
+Contoh program sederhana:
+\cppfile{code/hello.cpp}
+
+\begin{table}
+\centering
+\begin{tabular}{@{} l l @{}}
+  \toprule
+  \emph{Escape Sequence}  & Karakter yang direpresentasikan  \\
+  \midrule
+  \textbackslash{}a    & Bell sistem (suara \emph{beep})\\
+  \textbackslash{}b    & \emph{Backspace} (hapus)\\
+  \textbackslash{}f    & \emph{Page Break}\\
+  \textbackslash{}n    & Baris baru\\
+  \textbackslash{}r    & Mengembalikan kursor ke awal baris\\
+  \textbackslash{}t    & Tab\\
+  \textbackslash{}\textbackslash{}    & \emph{Backslash}\\
+  \textbackslash{}'    & Tanda kutip satu\\
+  \textbackslash{}"    & Tanda kutip dua\\
+  \bottomrule
+\end{tabular}
+\caption{\eng{Escape Sequence} yang dapat digunakan}
+\label{tipe-escape}
+\end{table}
+
+Keterangan perbaris:
+\begin{enumerate}
+  \item \code{/*\ldots*/} menandakan bahwa apapun setelah \code{/*} sampai
+  \code{*/} adalah sebuah komentar. Selain itu, dapat juga menulis komentar
+  dengan mengawali baris dengan \code{\slash{}\slash{}}.
+  Komentar tidak akan diproses.
+  \item Baris yang diawali \code{\#} biasa disebut perintah
+  \eng{preprocessor}, yang biasanya dapat mengganti kode yang akan
+  di kompilasi. \code{\#include} menandakan bahwa sebelum melakukan kompilasi
+  harus memasukkan kode dalam pustaka \emph{iostream}.
+  \item \code{int main() \{\ldots\}} fungsi utama sebuah program berjalan.
+  Kurung kurawal menandakan pengelompokan beberapa perintah dalam satu blok.
+  \item
+	\begin{itemize}
+	\item \code{cout <<} adalah syntax yang digunakan untuk menampilkan teks
+	  ke layar.
+	\item Kata yang diapit oleh tanda kutip dua, seperti
+	  \code{"Hello World!\textbackslash{}n"}, itu biasa disebut dengan
+	  \eng{string} dalam bahasa pemrograman.
+	\item \code{\textbackslash{}n} biasa disebut sebagai
+	  \eng{escape sequence}. \eng{Escape sequence}
+	  adalah simbol yang memiliki arti khusus dalam \eng{string}.
+	  Lihat tabel \ref{tipe-escape}.
+	\end{itemize}
+  \item \code{return 0} memberitahukan ke sistem operasi program berjalan
+  dengan lancar.
+\end{enumerate}
+
+Setiap baris dalam bahasa pemrograman C++ perlu diakhiri dengan tanda titik koma
+\enquote{\code{;}}. Kecuali, untuk \eng{preprocessor} dan
+tanda akhiran blok \{\}.
+
+\section{Fitur Dasar Program}
+\subsection{Nilai dan Pernyataan}
+Sebelum praktikum ini berlanjut, ada beberapa definisi yang harus praktikan
+kuasai;
+
+\begin{description}
+\item[Pernyataan] adalah sebuah unit dalam kode yang melakukan sesuatu -- sebuah
+  dasar dari pembuatan program.
+\item[Ekspresi] adalah pernyataan yang memiliki \emph{nilai} -- misalnya angka,
+  karakter, hasil penjumlahan angka, atau kalimat. \(5 + 6 / 3\) dan
+  \code{"Hello World!\textbackslash{}n"} adalah ekspresi.
+\end{description}
+
+Perlu diingat sekali lagi, bahwa tidak semua \emph{pernyataan} adalah
+\emph{ekspresi}.
+
+\subsection{Operasi Aritmatika}
+Kita dapat melakukan operasi matematika dalam program kita. Sebagai contoh,
+ganti \code{"Hello World!\textbackslash{}n"} dengan \(5 + 6 / 3\). Sehingga yang
+muncul di layar adalah angka \(7\).
+
+\begin{minted}{c++}
+cout << 5 + 6 / 3;
+\end{minted}
+
+Operator yang dapat digunakan sama seperti pada matematika biasa. \(+\), \(-\),
+\(*\), \(/\), dan tanda kurung \(()\) memiliki arti yang sama seperti operator matematika
+pada umumnya. Hanya saja, ada tambahan operator \(\%\) sebagai operator operasi
+modulo atau sisa hasil bagi.
+
+\subsection{Tipe Data}
+Setiap ekspresi dalam bahasa pemrograman C++ memiliki sebuah tipe data. Tipe
+data bisa diartikan sebagai jenis dari data tersebut. Contoh, \(42\) adalah
+\emph{integer}, \(3.14\) adalah angka \eng{floating-point} (desimal), dan
+\code{'A'} adalah karakter. Setiap tipe data memiliki perbedaan memori yang
+digunakan untuk menyimpannya.
+
+Sebuah operasi pada tipe data hanya dapat dilakukan dengan tipe data yang sesuai.
+Sebuah operator juga akan menghasilkan nilai yang sesuai dengan tipe dari operan
+yang digunakan dalam operasi. Misalnya, \(1/4\) hasilnya akan dibulatkan menjadi
+integer \(0\). Untuk mendapatkan hasil \(0.25\), kita harus melakukan operasi
+menggunakan angka desimal, sehingga operasi \(1/4\) diubah menjadi \(1.0/4.0\).
+
+\begin{table}
+\centering
+\begin{tabular}{@{} l l @{}}
+  \toprule
+  Jenis  & Deskripsi  \\
+  \midrule
+  int    & Bilangan Bulat\\
+  float  & Bilangan Desimal\\
+  char   & Sebuah Karakter, ditandakan dengan tanda kutip satu ('a', '3')\\
+  string & Kalimat/Kumpulan Karakter ("ITI")\\
+  bool   & Nilai Boolean, yaitu \emph{True} (\(1\)) atau \emph{False} (\(0\))\\
+  \bottomrule
+\end{tabular}
+\caption{Tipe data standar yang sering digunakan}
+\label{tipe-var}
+\end{table}
+
+\section{Variabel}
+Variabel adalah sebuah tempat yang memiliki nama yang berguna untuk menyimpan
+sebuah nilai. Sebuah variabel biasanya memiliki jenis\slash{}tipe tersendiri
+(lihat tabel \ref{tipe-var}). Fungsi variabel adalah untuk menyimpan nilai
+sehingga kita bisa memanggil nilai itu lagi.
+
+Contoh, kita akan menggunakan hasil dari \(3+3\) berulang kali. Kita bisa
+menyimpan hasil operasi tersebut dalam sebuah variabel yang akan kita sebut
+variabel \code{x}.
+
+\cppfile{code/variabel.cpp}
+
+\paragraph{Catatan:}
+Perhatikan kita bisa menyambungkan \code{<<} dalam \code{cout} untuk menampilkan
+lebih dari satu ekspresi atau variabel.
+
+Baris ke-6 biasa disebut sebagai deklarasi variabel \code{x}. Kita harus
+memberitahu kepada \eng{compiler} jenis dari variabel \code{x},
+sehingga komputer tahu berapa memori yang harus dialokasikan dan juga operasi
+apa saja yang bisa dilakukan kepada variabel tersebut.
+
+Baris ke-7 biasa disebut sebagai inisialisasi variabel \code{x}, dimana kita
+memberikan nilai awal untuk \code{x}. Di baris ini, kita juga berjumpa dengan
+operator \(=\), yang digunakan untuk memberi nilai pada variabel. Kita juga bisa
+mengubah nilai \code{x} dengan menggunakan operator \(=\) lagi.
+
+Kita dapat menyederhanakan program di atas, dengan menggabungkan baris ke-6 dan
+ke-7:
+\begin{minted}{cpp}
+int x = 3 + 3;
+\end{minted}
+
+Bentuk deklarasi\slash{}inisialisasi seperti ini terlihat lebih rapih, sehingga
+jika bisa bentuk ini selalu praktikan gunakan.
+
+\begin{table}[htb]
+\centering
+\begin{tabular}{@{} l l l l @{}}
+  \toprule
+  auto & else & namespace & switch\\
+  bool & enum & new & this\\
+  break & explicit & operator & throw\\
+  case & extern & private & true\\
+  catch & false & public & typedef\\
+  char & float & return & union\\
+  class & for & short & unsigned\\
+  const & goto & signed & using\\
+  continue & if & sizeof & virtual\\
+  default & int & static & void\\
+  do & long & struct & while\\
+  \bottomrule
+\end{tabular}
+\caption{Contoh \emph{Keyword} dalam bahasa pemrograman C++}
+\label{ex-keyword}
+\end{table}
+
+Variabel memiliki beberapa ketentuan untuk penentuan namanya;
+\begin{enumerate}
+  \item Variabel boleh terdiri dari karakter A--Z, a--z, 0--9, dan garis bawah.
+  \item Variabel tidak boleh dimulai dengan angka, contoh; \code{3\_ayam}.
+  \item Variabel tidak diperkenankan mengikuti \eng{keywords} (tabel
+  \ref{ex-keyword}) dalam bahasa pemrograman C++.
+\end{enumerate}
+
+\section{Masukan (Input)}
+Kita sudah dapat memanipulasi nilai. Sekarang kita bisa juga meminta pengguna
+program untuk memasukkan nilai yang diinginkan ke variabel.
+
+\cppfile{code/input.cpp}
+
+Seperti \code{cout <<} yang digunakan untuk menampilkan nilai, \code{cin >>}
+(baris ke-7) digunakan untuk memasukkan nilai. Sehingga saat pengguna mengetik
+nilai integer, lalu menekan tombol \code{Enter}, nilai yang diketik akan masuk
+ke dalam variabel \code{x}.
+
+\paragraph{Latihan}
+\begin{enumerate}
+  \item Buat sebuah program yang dapat digunakan untuk meminta nama dan nomor
+  mahasiswa, lalu tampilkan nama dan nomor mahasiswa tersebut! (gunakan variabel
+  tipe \eng{string} untuk nama)
+  \item Buat sebuah program untuk menghitung luas dan keliling lingkaran! Radius
+  lingkaran dimasukkan oleh pengguna.
+\end{enumerate}
+\end{document}

@@ -1,0 +1,162 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\chapter{Pengaturan Alur Program - IF}
+\section{Motivasi}
+Secara umum, program biasanya mengeksekusi perintah dari awal dan akhir secara
+berurutan. Pernyataan pertama dieksekusi, lalu yang kedua, terus yang ketiga,
+sampai program mencapai akhirnya. Sebuah program mungkin tidak akan berguna,
+jika dia hanya bisa menjalankan perintah yang sama setiap kali dijalankan.
+Program akan lebih berguna lagi jika dia bisa mengeksekusi perintah lain,
+tergantung dari kriteria yang ditentukan.
+
+Sebagai contoh, jika program untuk memeriksa sebuah dokumen dan mencari berapa
+banyak sebuah kata muncul di dalam dokumen tersebut, akan lebih bagus meskipun
+dokumennya berubah program tersebut tetap menghasilkan perhitungan yang benar.
+Contoh lainnya, sebuah permainan video yang bisa menggerakkan karakter yang ada
+sesuai dengan keinginan pemain. Kita perlu program yang bisa diatur alur
+eksekusinya. Karena itu kita akan belajar tentang pengaturan alur eksekusi program.
+
+\section{Kondisi}
+Pengaturan alur eksekusi program biasanya terjadi karena ada kondisi yang
+terpenuhi dalam program tersebut. Biasanya kita akan memeriksa sebuah nilai
+atau variabel, apakah nilai atau variabel tersebut memenuhi kondisi yang kita
+inginkan?
+
+Untuk memeriksa kondisi tersebut kita bisa memeriksa nilai dengan operator
+relasi atau logika.
+
+\subsection{Operator Relasi}
+Operator relasi bekerja dengan membandingkan dua ekspresi:
+\begin{table}[h!]
+\centering
+\begin{tabular}{@{} c l @{}}
+  \toprule
+  Operator  & Arti  \\
+  \midrule
+  >       	& Lebih dari\\
+  >=     		& Lebih dari sama dengan\\
+  <      		& Kurang dari\\
+  <=    		& Kurang dari sama dengan\\
+  ==      	& Sama dengan\\
+  !=				&	Tidak sama dengan\\
+  \bottomrule
+\end{tabular}
+\caption{Daftar operator relasi}
+\label{ope-rel}
+\end{table}
+
+Operator ini sama seperti operator aritmatika (contoh, \code{a > b}) tetapi
+mereka menghasilkan nilai \eng{Boolean}; \code{true} atau
+\code{false}. Sebagai contoh, anggap variabel \code{x} dan \code{y}
+memiliki nilai 4 dan 2. Lalu, \code{x > y} akan menghasilkan \code{true}
+dan \code{x < y} akan menghasilkan \code{false}.
+
+\subsection{Operator Logika}
+Operator logika biasanya digunakan untuk menggabungkan hasil operasi dari
+operator relasi untuk menghasilkan kondisi yang rumit:
+\begin{table}[h!]
+\centering
+\begin{tabular}{@{} c l @{}}
+  \toprule
+  Operator  & Arti  \\
+  \midrule
+  \&\&       	& Dan (\eng{and})\\
+  ||     		& Atau (\eng{or})\\
+  !     		& Bukan (\eng{not})\\
+  \bottomrule
+\end{tabular}
+\caption{Daftar operator logika}
+\label{ope-logika}
+\end{table}
+
+Operator diatas menghasilkan \code{true} atau \code{false}, menurut
+aturan logika. Contoh penggunaan operator logika (jika \code{x=6} dan
+\code{y=8}):
+\begin{minted}{cpp}
+!(x > 2)                        // false
+(x == y) || (x < y)             // true
+(x == y) && (x > y)             // false
+!(x > 2) && (x == y) || (x < y) // true
+\end{minted}
+
+\section{\eng{if}, \eng{if-else}, dan \eng{if-else if}}
+Bentuk utama dari pengaturan alur \eng{if} adalah:
+\begin{minted}{cpp}
+if (kondisi){
+    pernyataan 1;
+    pernyataan 2;
+    ...
+}
+\end{minted}
+
+Jika pernyataannya hanya satu kita bisa menghilangkan tanda kurung kurawal dalam
+if, sehingga menghasilkan bentuk:
+\begin{minted}{cpp}
+if (kondisi)
+    pernyataan 1;
+\end{minted}
+
+Perhatikan program sederhana untuk menentukan bilangan genap berikut:
+
+\cppfile{code/genap.cpp}
+
+Saat kalian jalankan, lihat hasil program tersebut\ldots{}bilangan yang
+dimasukkan mempengaruhi lajurnya program. Jika nilai \code{x} di modulo \(2\)
+tidak menghasilkan \(0\), baris ke-12 tidak akan pernah di eksekusi.
+
+Bagaimana kalau program sebelumnya ingin dimodifikasi sehingga program tersebut
+juga bisa menentukan bilangan yang dimasukkan itu bilangan bulat atau ganjil?
+Kita hanya perlu menambahkan pernyataan \code{else} dalam program.
+
+Sehingga program menjadi seperti ini:
+
+\cppfile{code/genap_ganjil.cpp}
+
+Dalam rangkaian \code{if}, dan nanti \code{else if}, \code{else} berguna
+untuk menangkap alur program jika kondisi dalam \code{if} dan \code{else if}
+tidak terpenuhi.
+
+Program yang biasa kita gunakan sehari-hari, biasanya memiliki banyak variasi
+eksekusi yang dapat dilakukan jika kita menginginkannya. Dengan pernyataan
+\eng{if} di atas, kita bisa merubah jalur eksekusi jika kondisinya hanya
+terdiri dari satu kondisi. Sekarang kita akan melihat program yang dapat
+menerima rantai kondisi yang berbeda. Dibawah ini akan ada program yang memeriksa
+umur orang yang datang ke sebuah tempat;
+
+\cppfile{code/penjaga_pintu.cpp}
+
+Jika kita lihat kode program diatas, ada sebuah pernyataan \eng{else if} yang
+berguna untuk memberikan kondisi baru sesudah pernyataan \eng{if} sebelumnya.
+Ini menyebabkan pernyataan \eng{if, else if,} dan \eng{else} menjadi sebuah
+rangkaian kondisi. Rangkaian kondisi harus selalu dimulai dengan pernyataan
+\eng{if}. Setelahnya, baru dapat menggunakan \eng{else if} atau diakhiri
+oleh \eng{else}.
+
+Program diatas akan memeriksa umur dari pengguna. Jika \(\code{umur} \geq 18\)
+maka program mempersilahkan pengguna masuk, jika \(13 < \code{umur} < 18\)
+maka pengguna hanya boleh masuk dengan ada bimbingan orang tua, dan jika semua
+kondisi sebelumnya tidak ada yang terpenuhi, pengguna dilarang masuk.
+
+\paragraph{Latihan}
+\begin{enumerate}
+  \item Buatlah sebuah program yang menerima masukkan tahun masehi, dan menentukan
+  apakah tahun tersebut tahun kabisat atau bukan.
+  \item Buatlah sebuah program yang menghitung nilai akhir dengan ketentuan
+  sebagai berikut:
+  \begin{verse}
+    A : 80 -- 100\\
+    B : 70 -- 79\\
+    C : 60 -- 69\\
+    D : 45 -- 59\\
+    E : 0  -- 44\\
+  \end{verse}
+  Nilai yang dimasukkan berupa nilai UAS, UTS, tugas, dan absensi. Rumus untuk
+  nilai keseluruhan:
+  \[
+    N = 10\% \times \textrm{absensi} + 15\% \times \textrm{tugas} + 25\% \times
+    \textrm{UTS} + 50\% \times \textrm{UAS}
+  \]
+  Tampilkan \(N\) dalam bentuk huruf seperti ketentuan diatas.
+\end{enumerate}
+\end{document}
