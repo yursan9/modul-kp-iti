@@ -12,6 +12,8 @@ dengan \code{UserName}.
 
 \section{Program C++ sederhana}
 Program menggunakan bahasa C++ biasanya diakhiri dengan ekstensi \enquote{.cpp};
+contohnya \emph{hello.cpp}. Program biasa ditulis menggunakan \eng{plain text
+editor} seperti Notepad++, Atom, Visual Studio Code, dan lain-lain.
 
 \begin{figure}
   \centering
@@ -25,6 +27,17 @@ Program menggunakan bahasa C++ biasanya diakhiri dengan ekstensi \enquote{.cpp};
   \caption{Gambar proses kompilasi}
   \label{comp-proc}
 \end{figure}
+
+Sebelum program yang ditulis dapat dijalankan, program C++ harus dikompilasi
+terlebih dahulu. Proses kompilasi ini diperlukan untuk menghasilkan file yang
+dapat dieksekusi oleh program (lihat Gambar \ref{comp-proc}). Proses kompilasi dilakukan
+dengan menggunakan \eng{software} bernama \eng{compiler}. Di luar sana ada banyak
+macam \eng{compiler} untuk bahasa pemrograman C++, seperti: Borland C++, Clang,
+GCC, dan Visual C++. 
+
+Di praktikum ini, kita akan menggunakan program \emph{DevC++} untuk menulis kode
+program dan MinGW, yang sudah terintegrasi dengan DevC++, sebagai \eng{compiler}
+kita.
 
 Contoh program sederhana:
 \cppfile{code/hello.cpp}
@@ -46,7 +59,7 @@ Contoh program sederhana:
   \textbackslash{}"    & Tanda kutip dua\\
   \bottomrule
 \end{tabular}
-\caption{\eng{Escape Sequence} yang dapat digunakan}
+\caption{Beberapa \eng{Escape Sequence} yang dapat digunakan}
 \label{tipe-escape}
 \end{table}
 
@@ -55,7 +68,7 @@ Keterangan perbaris:
   \item \code{/*\ldots*/} menandakan bahwa apapun setelah \code{/*} sampai
   \code{*/} adalah sebuah komentar. Selain itu, dapat juga menulis komentar
   dengan mengawali baris dengan \code{\slash{}\slash{}}.
-  Komentar tidak akan diproses.
+  Komentar tidak akan diproses oleh alat kompilasi.
   \item Baris yang diawali \code{\#} biasa disebut perintah
   \eng{preprocessor}, yang biasanya dapat mengganti kode yang akan
   di kompilasi. \code{\#include} menandakan bahwa sebelum melakukan kompilasi
@@ -63,17 +76,17 @@ Keterangan perbaris:
   \item \code{int main() \{\ldots\}} fungsi utama sebuah program berjalan.
   Kurung kurawal menandakan pengelompokan beberapa perintah dalam satu blok.
   \item
-	\begin{itemize}
-	\item \code{cout <<} adalah syntax yang digunakan untuk menampilkan teks
-	  ke layar.
-	\item Kata yang diapit oleh tanda kutip dua, seperti
-	  \code{"Hello World!\textbackslash{}n"}, itu biasa disebut dengan
-	  \eng{string} dalam bahasa pemrograman.
-	\item \code{\textbackslash{}n} biasa disebut sebagai
-	  \eng{escape sequence}. \eng{Escape sequence}
-	  adalah simbol yang memiliki arti khusus dalam \eng{string}.
-	  Lihat tabel \ref{tipe-escape}.
-	\end{itemize}
+  	\begin{itemize}
+  	\item \code{cout <<} adalah syntax yang digunakan untuk menampilkan teks
+  	  ke layar.
+  	\item Kata yang diapit oleh tanda kutip dua, seperti
+  	  \code{"Hello World!\textbackslash{}n"}, itu biasa disebut dengan
+  	  \eng{string} dalam bahasa pemrograman.
+  	\item \code{\textbackslash{}n} biasa disebut sebagai
+  	  \eng{escape sequence}. \eng{Escape sequence}
+  	  adalah simbol yang memiliki arti khusus dalam \eng{string}.
+  	  Lihat tabel \ref{tipe-escape}.
+  	\end{itemize}
   \item \code{return 0} memberitahukan ke sistem operasi program berjalan
   dengan lancar.
 \end{enumerate}
@@ -85,7 +98,7 @@ tanda akhiran blok \{\}.
 \section{Fitur Dasar Program}
 \subsection{Nilai dan Pernyataan}
 Sebelum praktikum ini berlanjut, ada beberapa definisi yang harus praktikan
-kuasai;
+kuasai:
 
 \begin{description}
 \item[Pernyataan] adalah sebuah unit dalam kode yang melakukan sesuatu -- sebuah
@@ -158,18 +171,18 @@ variabel \code{x}.
 Perhatikan kita bisa menyambungkan \code{<<} dalam \code{cout} untuk menampilkan
 lebih dari satu ekspresi atau variabel.
 
-Baris ke-6 biasa disebut sebagai deklarasi variabel \code{x}. Kita harus
+Baris ke-7 biasa disebut sebagai deklarasi variabel \code{x}. Kita harus
 memberitahu kepada \eng{compiler} jenis dari variabel \code{x},
 sehingga komputer tahu berapa memori yang harus dialokasikan dan juga operasi
 apa saja yang bisa dilakukan kepada variabel tersebut.
 
-Baris ke-7 biasa disebut sebagai inisialisasi variabel \code{x}, dimana kita
+Baris ke-8 biasa disebut sebagai inisialisasi variabel \code{x}, dimana kita
 memberikan nilai awal untuk \code{x}. Di baris ini, kita juga berjumpa dengan
 operator \(=\), yang digunakan untuk memberi nilai pada variabel. Kita juga bisa
 mengubah nilai \code{x} dengan menggunakan operator \(=\) lagi.
 
-Kita dapat menyederhanakan program di atas, dengan menggabungkan baris ke-6 dan
-ke-7:
+Kita dapat menyederhanakan program di atas, dengan menggabungkan baris ke-7 dan
+ke-8:
 \begin{minted}{cpp}
 int x = 3 + 3;
 \end{minted}
@@ -213,7 +226,7 @@ program untuk memasukkan nilai yang diinginkan ke variabel.
 \cppfile{code/input.cpp}
 
 Seperti \code{cout <<} yang digunakan untuk menampilkan nilai, \code{cin >>}
-(baris ke-7) digunakan untuk memasukkan nilai. Sehingga saat pengguna mengetik
+(baris ke-8) digunakan untuk memasukkan nilai. Sehingga saat pengguna mengetik
 nilai integer, lalu menekan tombol \code{Enter}, nilai yang diketik akan masuk
 ke dalam variabel \code{x}.
 
