@@ -12,9 +12,19 @@ dengan \code{UserName}.
 
 \section{Program C++ sederhana}
 Program menggunakan bahasa C++ biasanya diakhiri dengan ekstensi \enquote{.cpp};
-contohnya \emph{hello.cpp}. Program biasa ditulis menggunakan \eng{text editor}
-seperti Notepad, Atom, dan lain-lain. Di praktikum ini kita akan menggunakan
-program \emph{DevC++}.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \node [rectangle, draw] (code)                           {Sumber Kode};
+    \node [circle, draw]    (compiler) [right = of code]     {\emph{Compiler}};
+    \node [rectangle, draw] (program)  [right = of compiler] {File Binari Program};
+    \draw [->, >=stealth, thick] (code) -- (compiler);
+    \draw [->, >=stealth, thick] (compiler) -- (program);
+  \end{tikzpicture}
+  \caption{Gambar proses kompilasi}
+  \label{comp-proc}
+\end{figure}
 
 Contoh program sederhana:
 \cppfile{code/hello.cpp}
