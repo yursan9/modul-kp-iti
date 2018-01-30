@@ -1,50 +1,11 @@
 \documentclass[a4paper,10pt]{report}
-\usepackage[l2tabu,orthodox]{nag}
-%\usepackage[BCOR=8.25mm]{typearea}
-\usepackage{polyglossia}
-\usepackage{fontspec}
-\usepackage{microtype}
-
-\usepackage{shellesc}
-\usepackage{minted}
-\newmintedfile{cpp}{frame=lines, linenos}
-
-\usepackage[small]{titlesec}
-
-\usepackage{tikz}
-\usetikzlibrary{positioning}
-
-\usepackage{csquotes}
-\usepackage{subfiles}
-\usepackage{booktabs}
-
-% Pengaturan bahasa
-\setmainlanguage{bahasai}
-\setotherlanguage{english}
-\DeclareQuoteAlias{american}{bahasai}
-
-% Fonta
-\setmainfont{TeXGyrePagella}[Ligatures=TeX]
-\setsansfont{Noto Sans}[Ligatures=TeX]
-\setmonofont{Source Code Pro}[Scale=0.82]
-
-% Gaya bagian
-\addto\captionsbahasai{\renewcommand{\chaptername}{Praktikum}}
-\titlespacing*{\chapter}{0pt}{0pt}{\baselineskip}
-\renewcommand*{\thesection}{\arabic{section}}
-
-% Pengaturan Daftar Isi
-\setcounter{tocdepth}{1}
+\usepackage{modulstyle}
 
 % Pengaturan Judul
 \title{BUKU PETUNJUK PRAKTIKUM\\
 KONSEP PEMROGRAMAN}
 \author{Yurizal Susanto}
 \date{\today}
-
-% Fungsi tambahan
-\newcommand{\eng}[1]{\emph{\textenglish{#1}}}
-\newcommand{\code}[1]{\mbox{\texttt{#1}}}
 
 \begin{document}
 \maketitle
