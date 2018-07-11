@@ -263,10 +263,10 @@ int main()
 }
 ```
 
-Seperti yang digunakan untuk menampilkan nilai, (baris ke-8) digunakan
-untuk memasukkan nilai. Sehingga saat pengguna mengetik nilai integer,
-lalu menekan tombol `Enter`, nilai yang diketik akan masuk ke dalam
-variabel `x`.
+Seperti `cout <<` yang digunakan untuk menampilkan nilai, `cin >>`
+(baris ke-8) digunakan untuk memasukkan nilai ke sebuah variabel.
+Sehingga saat pengguna mengetik nilai integer, lalu menekan tombol
+`Enter`, nilai yang diketik akan masuk ke dalam variabel `x`.
 
 #### Latihan
 
